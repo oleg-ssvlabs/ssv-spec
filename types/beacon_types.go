@@ -166,6 +166,8 @@ const (
 
 	// BeaconTestNetwork is a simple test network with a custom genesis time
 	BeaconTestNetwork BeaconNetwork = "now_test_network"
+
+	LocalTestnetNetwork BeaconNetwork = "local-testnet"
 )
 
 // BeaconNetwork represents the network.
@@ -186,6 +188,8 @@ func NetworkFromString(n string) BeaconNetwork {
 		return SepoliaNetwork
 	case string(BeaconTestNetwork):
 		return BeaconTestNetwork
+	case string(LocalTestnetNetwork):
+		return LocalTestnetNetwork
 	default:
 		return ""
 	}
@@ -206,6 +210,8 @@ func (n BeaconNetwork) ForkVersion() [4]byte {
 		return [4]byte{0x90, 0x00, 0x00, 0x69}
 	case BeaconTestNetwork:
 		return [4]byte{0x99, 0x99, 0x99, 0x99}
+	case LocalTestnetNetwork:
+		return [4]byte{0x10, 0x00, 0x00, 0x38}
 	default:
 		return [4]byte{0x98, 0x98, 0x98, 0x98}
 	}
