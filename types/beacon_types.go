@@ -233,7 +233,7 @@ func (n BeaconNetwork) MinGenesisTime() uint64 {
 	case BeaconTestNetwork:
 		return 1616508000
 	case LocalTestnetNetwork:
-		return 1746533419
+		return 1746539606
 	default:
 		return 0
 	}
